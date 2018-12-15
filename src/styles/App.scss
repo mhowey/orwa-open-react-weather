@@ -1,0 +1,31 @@
+.app {
+  margin-top: 1rem;
+  .card {
+    padding: 1rem;
+  }
+  .ui.statistic > .value {
+    color: #1167bc;
+  }
+  .ui.card > .dark {
+    background-color: #1167bc;
+    color: white;
+    .ui.statistic > .value {
+      color: white;
+    }
+    .label {
+      color: #c9e5ff;
+    }
+  }
+}
+
+.screen-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.brand-logo {
+  width: 150px;
+  margin-bottom: 10px;
+}
