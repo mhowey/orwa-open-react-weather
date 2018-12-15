@@ -13,7 +13,7 @@ export class WeatherStore extends Component {
     celsius: null,
     fahrenheit: null,
     humidity: null,
-    displayUnits: 'imperial',
+    displayUnits: 'metric',
     spinner: true,
     loadingMessage: 'Getting your location...',
     locationName: '',
