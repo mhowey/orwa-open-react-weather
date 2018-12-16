@@ -18,7 +18,7 @@ export class WeatherStore extends Component {
     location: true,
     loadingMessage: 'Getting your location...',
     locationName: '',
-    city: '',
+    city: ''
   }
 
   getPosition = function() {
@@ -29,7 +29,6 @@ export class WeatherStore extends Component {
 
   // go fetch our data and update the store state
   componentDidMount() {
-<<<<<<< HEAD
     this.getPosition()
       .then(async response => {
         const { latitude, longitude } = response.coords
@@ -39,23 +38,6 @@ export class WeatherStore extends Component {
           lon: longitude,
           loadingMessage: 'Getting your weather...',
           locationName: response.name
-=======
-    this.getPosition().then(async response => {
-      const { latitude, longitude } = response.coords
-      await this.setState({
-        lat: latitude,
-        lon: longitude,
-        loadingMessage: 'Getting your weather...',
-        locationName: response.name,
-      })
-      // use our axios api to fetch the weather with the lat and lon
-      openweather
-        .get(openweather.baseURL, {
-          params: {
-            lon: this.state.lon,
-            lat: this.state.lat,
-          },
->>>>>>> d9ae4116b5cf19ca36f6c479059d42cf6f951232
         })
         // use our axios api to fetch the weather with the lat and lon
         openweather
@@ -73,7 +55,6 @@ export class WeatherStore extends Component {
             const fahrenheit = convert.kelvin.to.fahrenheit(temp)
             const celsius = convert.kelvin.to.celsius(temp)
 
-<<<<<<< HEAD
             // update our state!
             await this.setState({
               kelvin: temp,
@@ -87,17 +68,6 @@ export class WeatherStore extends Component {
           })
           .catch(error => {
             console.error('API Data Loading Error')
-=======
-          // update our state!
-          await this.setState({
-            kelvin: temp,
-            humidity,
-            spinner: false,
-            fahrenheit,
-            celsius,
-            time,
-            city,
->>>>>>> d9ae4116b5cf19ca36f6c479059d42cf6f951232
           })
       })
       .catch(error => {
