@@ -1,6 +1,6 @@
 import React, { Component, createContext } from 'react'
 import openweather from '../api/openweather'
-import convert from '../helpers/convert'
+import { convert } from '../helpers/convert'
 
 const Context = createContext({ appTitle: 'Dragon Weather' })
 
@@ -17,7 +17,7 @@ export class WeatherStore extends Component {
     spinner: true,
     loadingMessage: 'Getting your location...',
     locationName: '',
-    city: ''
+    city: '',
   }
 
   getPosition = function() {
@@ -34,15 +34,15 @@ export class WeatherStore extends Component {
         lat: latitude,
         lon: longitude,
         loadingMessage: 'Getting your weather...',
-        locationName: response.name
+        locationName: response.name,
       })
       // use our axios api to fetch the weather with the lat and lon
       openweather
         .get(openweather.baseURL, {
           params: {
             lon: this.state.lon,
-            lat: this.state.lat
-          }
+            lat: this.state.lat,
+          },
         })
         .then(async response => {
           const { temp, humidity } = response.data.main
@@ -60,7 +60,7 @@ export class WeatherStore extends Component {
             fahrenheit,
             celsius,
             time,
-            city
+            city,
           })
         })
     })
