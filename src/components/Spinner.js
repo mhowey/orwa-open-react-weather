@@ -1,11 +1,19 @@
-import React from 'react'
+import React, { Component } from 'react'
+import WeatherContext from '../contexts/WeatherContext'
+import LocationDenied from './LocationDenied'
 
-const Spinner = props => {
-  return (
-    <div className="ui active dimmer">
-      <div className="ui big text loader">{props.loadingMessage}</div>
-    </div>
-  )
+class Spinner extends Component {
+  static contextType = WeatherContext
+  render() {
+    if (!this.context.location) {
+      return <LocationDenied />
+    }
+    return (
+      <div className="ui active dimmer">
+        <div className="ui big text loader">{this.context.loadingMessage}</div>
+      </div>
+    )
+  }
 }
 
 Spinner.defaultProps = {

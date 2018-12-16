@@ -18,6 +18,20 @@
   }
 }
 
+.fail .ui.big.loader:after,
+.fail .ui.big.loader:before {
+  display: none;
+}
+
+.text.loader {
+  line-height: 2rem;
+}
+
+i.large.icon {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+}
+
 .screen-center {
   display: flex;
   justify-content: center;
