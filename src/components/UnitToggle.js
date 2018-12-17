@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import WeatherContext from '../contexts/WeatherContext'
+import ReactGA from 'react-ga'
 
 export default class UnitToggle extends Component {
   static contextType = WeatherContext
-
   render() {
     this.context.displayUnits === 'imperial'
       ? (this.imperialActive = 'positive')
@@ -17,18 +17,30 @@ export default class UnitToggle extends Component {
       <div>
         <div className="ui buttons uk-animation-shake">
           <button
-            onClick={() =>
+            onClick={() => {
+              // google analytics event
+              ReactGA.event({
+                category: 'Navigation',
+                action: 'Clicked Imperial'
+              })
+              // update the context state
               this.context.onWeatherChange({ displayUnits: 'imperial' })
-            }
+            }}
             className={`ui button ${this.imperialActive}`}
           >
             Imperial
           </button>
           <div className="or" />
           <button
-            onClick={() =>
+            onClick={() => {
+              // google analytics event
+              ReactGA.event({
+                category: 'Navigation',
+                action: 'Clicked Metric'
+              })
+              // update the context state
               this.context.onWeatherChange({ displayUnits: 'metric' })
-            }
+            }}
             className={`ui button ${this.metricActive}`}
           >
             Metric

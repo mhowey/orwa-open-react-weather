@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import WeatherContext from '../contexts/WeatherContext'
 import LocationDenied from './LocationDenied'
+import ReactGA from 'react-ga'
 
 class Spinner extends Component {
   static contextType = WeatherContext
@@ -8,6 +9,10 @@ class Spinner extends Component {
     if (!this.context.location) {
       return <LocationDenied />
     }
+    ReactGA.event({
+      category: 'Geolocation Event',
+      action: 'Geolocation ALLOWED'
+    })
     return (
       <div className="ui active dimmer">
         <div className="ui big text loader">{this.context.loadingMessage}</div>
