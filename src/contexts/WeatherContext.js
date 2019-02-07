@@ -2,23 +2,23 @@ import React, { Component, createContext } from 'react'
 import openweather from '../api/openweather'
 import { convert } from '../helpers/convert'
 
-const Context = createContext({ appTitle: 'Dragon Weather' })
+const Context = createContext({ appTitle: 'Open React Weather' })
 
 export class WeatherStore extends Component {
   state = {
     lat: null,
     lon: null,
-    appTitle: 'Dragon Weather App',
+    appTitle: 'Open React Weather',
     kelvin: null,
     celsius: null,
     fahrenheit: null,
     humidity: null,
-    displayUnits: 'metric',
+    displayUnits: 'imperial',
     spinner: true,
     location: true,
     loadingMessage: 'Getting your location...',
     locationName: '',
-    city: ''
+    city: '',
   }
 
   getPosition = function() {
@@ -37,15 +37,15 @@ export class WeatherStore extends Component {
           lat: latitude,
           lon: longitude,
           loadingMessage: 'Getting your weather...',
-          locationName: response.name
+          locationName: response.name,
         })
         // use our axios api to fetch the weather with the lat and lon
         openweather
           .get(openweather.baseURL, {
             params: {
               lon: this.state.lon,
-              lat: this.state.lat
-            }
+              lat: this.state.lat,
+            },
           })
           .then(async response => {
             const { temp, humidity } = response.data.main
@@ -63,7 +63,7 @@ export class WeatherStore extends Component {
               fahrenheit,
               celsius,
               time,
-              city
+              city,
             })
           })
           .catch(error => {
@@ -74,7 +74,7 @@ export class WeatherStore extends Component {
         this.setState({
           location: false,
           loadingMessage:
-            'Location Access Denied: to use this application, you must allow location access.'
+            'Location Access Denied: to use this application, you must allow location access.',
         })
       })
   }

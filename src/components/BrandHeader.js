@@ -1,7 +1,7 @@
 import React from 'react'
 import WeatherContext from '../contexts/WeatherContext'
 import CityDisplay from './CityDisplay'
-import logo from '../assets/drakontas-logo.png'
+import logo from '../assets/logo.png'
 
 class BrandHeader extends React.Component {
   static contextType = WeatherContext
