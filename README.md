@@ -1,3 +1,7 @@
+## Open React Weather App (ORWA)
+
+This weather application is intended to be a free open source weather application. All functionality is designed to be used in conjunction with <a href="https://openweathermap.org/api" target="_blank">openweathermap.org API</a>. You'll need to go to openweathermap.org and signup for your own API key and put it in the openweather.js file in the API folder.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
