@@ -12,5 +12,3 @@ export default axios.create({
     appid: process.env.REACT_APP_ID,
   },
 })
-
-console.log('env::', process.env)
